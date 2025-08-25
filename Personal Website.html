@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G.V. Sai Krishna | Portfolio</title>
+    <meta name="description" content="G.V. Sai Krishna's professional portfolio showcasing projects, skills, and experience in Fintech, Data Analytics, and Digital Marketing.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Light Theme Color Palette */
+            --primary-color: #8a1c1c; /* A slightly softer deep red */
+            --secondary-color: #b53d3d;
+            --background-light: #f8f9fa; /* Off-white for the main background */
+            --card-bg: #ffffff; /* White for cards to stand out */
+            --text-dark: #212529; /* Very dark gray for primary text */
+            --text-gray: #6c757d; /* Medium gray for secondary text */
+            --font-poppins: 'Poppins', sans-serif;
+        }
+
+        /* Basic Reset & Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-poppins);
+            background-color: var(--background-light);
+            color: var(--text-dark); /* Changed to dark text */
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--text-dark); /* Changed to dark text */
+        }
+
+        a {
+            color: var(--text-dark); /* Changed to dark text */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Container & Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+        }
+
+        /* --- Components --- */
+
+        /* Header & Navigation */
+        .site-header {
+            background-color: transparent;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .site-header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95); /* Light scrolled background */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light); /* Logo text is light on hero */
+        }
+
+        .site-header.scrolled .logo h3,
+        .site-header.scrolled .nav-links a {
+            color: var(--text-dark); /* Change logo & nav text to dark on scroll */
+        }
+
+        .nav-links li {
+            display: inline-block;
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: var(--text-light); /* Nav links are light on hero */
+        }
+        
+        .site-header.scrolled .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://img1.wsimg.com/isteam/stock/88379/:/rs=w:1920,h:1080,cg:true,m/cr=w:1920,h:1080') no-repeat center center/cover;
+            color: #ffffff; /* All text inside hero is light */
+        }
+        
+        .hero-content h1, .hero-content h3 {
+             color: #ffffff;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2rem, 8vw, 4rem);
+            font-weight: 700;
+        }
+
+        .hero-content h3 {
+            font-size: clamp(1rem, 4vw, 1.8rem);
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons .btn {
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.75rem 2rem;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: #ffffff;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #ffffff;
+            color: var(--primary-color);
+        }
+        
+        .project-card .btn-secondary {
+            color: var(--text-dark);
+            border-color: var(--text-dark);
+        }
+        
+        .project-card .btn-secondary:hover {
+            background-color: var(--text-dark);
+            color: #ffffff;
+        }
+
+        /* About & Contact Section */
+        #about, #contact {
+            background-color: var(--card-bg); /* Use white for these sections */
+        }
+        
+        #about .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .about-text {
+            max-width: 800px;
+            font-size: 1.1rem;
+            color: var(--text-gray);
+        }
+        
+        .about-text strong {
+            color: var(--text-dark);
+        }
+
+        /* Skills Section */
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .skill-category h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            margin-bottom: 0.5rem;
+            color: var(--text-gray);
+        }
+        
+        /* Projects Section */
+        #projects {
+             background-color: var(--card-bg);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--background-light); /* Cards are off-white */
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #dee2e6;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+        
+        .project-card .project-links {
+            margin-top: 1rem;
+        }
+        
+        /* Experience Section */
+        .logo-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .logo-item {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--card-bg);
+            border-radius: 50%;
+            padding: 15px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .logo-item img {
+            max-width: 90%;
+            max-height: 90%;
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: filter 0.3s ease, opacity 0.3s ease;
+        }
+        
+        .logo-item img:hover {
+            filter: grayscale(0%);
+            opacity: 10;
+        }
+
+        .education-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .education-list li {
+            padding: 1.5rem;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            text-align: left;
+            border: 1px solid #dee2e6;
+        }
+        
+        .education-list h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+        
+        .education-list p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Contact Section */
+        #contact .container {
+            text-align: center;
+        }
+        
+        .contact-info a {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .social-links a {
+            font-size: 2rem;
+            margin: 0 1rem;
+            color: var(--text-gray);
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        .site-footer {
+            background-color: #2a2a2a; /* Dark footer for contrast */
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .site-footer p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hiding nav links on mobile for simplicity, could be replaced by a hamburger menu */
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="site-header" class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="#hero-section"><h3>G.V. Sai Krishna</h3></a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero-section" class="hero-section">
+            <div class="hero-content">
+                <h1>G.V. Sai Krishna</h1>
+                <h3>Marketing Specialist at VirtueS | MBA Fintech Student </h3>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Projects</a>
+                    <a href="https://drive.google.com/file/d/1EEdhIcjwB46Lm4Ts4bajmXBdQyGE9vwg/view?usp=sharing" class="btn btn-secondary" target="_blank" download>Download Resume</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2>About Me</h2>
+                </div>
+                <div class="about-text">
+                    <p>Hello! I'm Sai Krishna, an ambitious MBA Fintech student at KLH Global Business School. I am passionate about leveraging my skills in <strong>finance, data analysis, and digital marketing</strong> to streamline processes and create innovative solutions.</p>
+                    <p>My journey includes hands-on internships and freelance projects where I've delivered tangible results in dynamic environments. I thrive on transforming complex challenges into opportunities for growth.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Key Skills</h2>
+                </div>
+                <div class="skills-list">
+                    <div class="skill-category">
+                        <h4>Management Skills</h4>
+                        <ul>
+                            <li>Financial Technology (Fintech)</li>
+                            <li>Strategic Problem-Solving</li>
+                            <li>Process Streamlining & Optimization</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Analytics & Data</h4>
+                        <ul>
+                            <li>Data Analysis & Interpretation</li>
+                            <li>Data Visualization (Tableau, Power BI)</li>
+                            <li>Google Analytics</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Digital Marketing</h4>
+                        <ul>
+                            <li>Search Engine Optimization (SEO)</li>
+                            <li>Social Media Marketing</li>
+                            <li>Content Strategy</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Technical Proficiencies</h4>
+                        <ul>
+                            <li>Web Technologies (HTML, CSS)</li>
+                            <li>Microsoft Office Suite (Advanced)</li>
+                            <li>Design Tools (Canva)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured Projects</h2>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Salary & Tax Calculator</h3>
+                        <p>A user-friendly web application I developed to help individuals quickly calculate their salary breakdown and tax liabilities. This project showcases my ability to build practical tools using web technologies.</p>
+                        <p><strong>Technologies Used:</strong> HTML, CSS, JavaScript.</p>
+                        <div class="project-links">
+                             <a href="https://saikrish6635.github.io/savings-tax-calculator/" target="_blank" class="btn btn-primary">Live Project Link <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Client Logo & Brand Designs</h3>
+                        <p>As a freelance designer, I've created visual identities for several businesses. My process involves understanding the client's vision and translating it into a memorable and effective design.</p>
+                        <p><strong>Tools Used:</strong> Canva, Adobe Suite.</p>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-secondary">View Design Gallery <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Professional Experience & Education</h2>
+                </div>
+
+                <h3>Experience</h3>
+            <br>
+                <div class="logo-grid">
+                    <div class="logo-item"><img src="https://styleguide.brainly.in/images/logos/brainly-0eeb28be95.svg" alt="Brainly Logo"></div>
+                    <div class="logo-item"><img src="https://teachmint.keka.com/ats/documents/a2d014c9-834b-4fa1-a3e5-d2a66769d64d/careerportal/5557062fc7174bc1b6ef547d064330f3.png" alt="Teachmint Logo"></div>
+                    <div class="logo-item"><img src="https://firstlearnacademy.com/wp-content/uploads/2023/10/cropped-Sample-VC-FL-e1743095673110-768x185.png" alt="First Learn Academy Logo"></div>
+                    <div class="logo-item"><img src="https://www.virtueserve.com/virtuesBlack.svg" alt="Virtue Serve Logo"></div>
+                </div>
+
+                <h3>Education</h3>
+            <br>
+                <ul class="education-list">
+                    <li>
+                        <h4>MBA, Fintech</h4>
+                        <p>KLH Global Business School, Hyderabad | 2023 - 2025</p>
+                    </li>
+                    <li>
+                        <h4>B.Sc, Maths, Physics, & Computer Science</h4>
+                        <p>Aditya Degree College</p>
+                    </li>
+                    <li>
+                        <h4>Intermediate & SSC</h4>
+                        <p>Sri Chaitanya Institutions</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Let's Connect!</h2>
+                    <p>I'm always open to discussing new opportunities, projects, or ideas. Feel free to get in touch or explore my professional network.</p>
+                </div>
+                <div class="contact-info">
+                    <p>Email: <a href="mailto:grandhivenkatasaikrishna@gmail.com">grandhivenkatasaikrishna@gmail.com</a></p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/sai-krishna-7041/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Copyright © 2025 gvsaikrishna.com - All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JS for a smooth scroll header effect
+        const header = document.getElementById('site-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
