@@ -24,8 +24,6 @@
             --font-family-primary: 'Poppins', sans-serif;
         }
 
-        /* Dark mode palette removed as per request */
-
         * {
             margin: 0;
             padding: 0;
@@ -197,11 +195,11 @@
         .profile-image {
            width: 500px;
            height: 500px;
-    	   border-radius: 50%;
-    	   object-fit: scale-down;
-    	   border: 6px solid var(--color-primary);
-    	   box-shadow: 0 0 20px var(--color-shadow);
-               }
+           border-radius: 50%;
+           object-fit: scale-down;
+           border: 6px solid var(--color-primary);
+           box-shadow: 0 0 20px var(--color-shadow);
+        }
 
         /* --- General Card Styles & Animations --- */
         .card-animation {
@@ -267,7 +265,7 @@
             margin-top: 10px;
         }
 
-        /* --- Experience & Companies --- */
+        /* --- Experience & Companies (Static Grid) --- */
         .company-logo-grid {
             display: flex;
             justify-content: center;
@@ -347,6 +345,105 @@
 
         .achievement-item i {
             margin-right: 8px;
+        }
+        
+        /* --- START GALLERY CAROUSEL STRIP STYLES --- */
+
+        /* Container (md:block styles) */
+        .gallery-strip-wrapper {
+            background-color: var(--color-background);
+            height: 180px; /* Increased height for 50% larger images */
+            position: relative;
+            box-shadow: 0 4px 8px var(--color-shadow);
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+            margin: 40px auto; 
+            padding: 20px 0;
+            overflow: hidden; /* Crucial for clipping the sliding images */
+        }
+        
+        @media (max-width: 767px) {
+            .gallery-strip-wrapper {
+                 height: 120px; /* Smaller height on mobile */
+                 overflow: hidden;
+            }
+        }
+        
+        .gallery-slider-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            max-width: 100%;
+            height: 100%;
+        }
+
+        #gallery-track {
+            display: flex;
+            flex-wrap: nowrap;
+            height: 100%;
+            /* Animation properties applied dynamically by JavaScript */
+        }
+
+        /* Image Card Styles (specific to the gallery strip) */
+        .gallery-image-wrapper {
+            width: 180px; /* 50% larger than 120px */
+            flex-shrink: 0; 
+            padding: 0 10px; /* Reduced gap as requested */
+            height: 100%;
+            box-sizing: border-box;
+            cursor: default; /* Changed cursor to default since hover effect is applied */
+        }
+        
+        @media (max-width: 767px) {
+            .gallery-image-wrapper {
+                width: 150px; 
+                padding: 0 10px;
+            }
+        }
+
+        .gallery-image-card { 
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .gallery-image-card img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover; 
+            filter: none; 
+            opacity: 1;
+            /* Enhanced professional animation */
+            transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; 
+            border-radius: 6px;
+        }
+        
+        .gallery-image-wrapper:hover img {
+            transform: scale(1.05); /* Subtle zoom */
+            /* Green shadow for professional highlight */
+            box-shadow: 0 10px 25px rgba(56, 161, 105, 0.5); 
+        }
+
+        /* --- END GALLERY CAROUSEL STRIP STYLES --- */
+        
+        /* --- START PARTNERS STRIP STYLES (Removed from HTML, keeping CSS for safe margin) --- */
+        .partners-strip-wrapper {
+            background-color: #fff;
+            height: 100px;
+            position: relative;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-radius: 0.5rem;
+            border: 1px solid #f3f4f6;
+            margin: 40px auto; 
+            display: none; /* Explicitly hide the container in case HTML structure is somehow missed */
         }
 
         /* --- Contact Section --- */
@@ -505,6 +602,7 @@
                 <a href="#hero">Home</a>
                 <a href="#skills">Skills</a>
                 <a href="#experience">Experience</a>
+                <a href="#gallery">Gallery</a> <!-- Added Gallery Link -->
                 <a href="#contact">Contact</a>
             </nav>
             </div>
@@ -521,20 +619,21 @@
                     </p>
                     <div class="hero-actions">
                         <a href="https://www.linkedin.com/in/sai-krishna-7041" target="_blank" class="cta-button primary"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
-                        <a href=" https://drive.google.com/file/d/1EEdhIcjwB46Lm4Ts4bajmXBdQyGE9vwg/view" class="cta-button secondary" download><i class="fas fa-download"></i> Download CV (Placeholder)</a>
+                        <!-- CV Link with removed placeholder text -->
+                        <a href=" https://drive.google.com/file/d/1EEdhIcjwB46Lm4Ts4bajmXBdQyGE9vwg/view" class="cta-button secondary" download><i class="fas fa-download"></i> Download CV</a>
                     </div>
                 </div>
-                 <div class="hero-image-container">
+                   <div class="hero-image-container">
                     <img src="https://image2url.com/images/1759518101336-9d65f132-9363-41e2-baf0-de99ca6cf541.jpg" alt="Sai Krishna Professional Headshot" class="profile-image">
                 </div>
             </div>
         </section>
-
         <section id="strategy" class="section-padding">
             <div class="container">
-                <h3 class="section-title">Executive Summary & Strategic Focus</h3>
+                <h3 class="section-title">Executive Summary</h3>
                 <p class="section-intro">
-                    Currently, I operate at the intersection of digital strategy and brand growth at VirtueS, supporting the success of its flagship product, DaVinci Smart Manufacturing, an MES (Manufacturing Execution System) solution for the metallurgical industry. In this capacity, I work closely with key stakeholders, contributing to strategic decision-making, campaign execution, and operational excellence.
+                    Currently, I am working as Marketing Specialist at VirtueS, supporting the success of its flagship product, DaVinci Smart Manufacturing, an MES (Manufacturing Execution System) solution for the metallurgical industry. In this capacity, I work closely with key stakeholders, contributing to strategic decision-making, campaign execution, and operational excellence.
+                </p>
 
                 <div class="strategy-grid">
                     <div class="strategy-card card-animation">
@@ -549,6 +648,7 @@
                         <h4><i class="fas fa-chart-line"></i> Market Intelligence</h4>
                         <p>Driving content and marketing strategies informed by ongoing market research, competitor benchmarking, and insights on emerging industry trends.</p>
                     </div>
+                </div>
             </div>
         </section>
 
@@ -596,11 +696,7 @@
                 </p>
 
                 <div class="company-logo-grid">
-                    <div class="logo-card" data-tooltip="Marketing Specialist - DaVinci Smart Manufacturing (MES)">
-                        <img src="https://www.virtueserve.com/virtuesBlack.svg" alt="VirtueS Logo">
-                        <span class="company-name">VirtueS</span>
-                    </div>
-                    <div class="logo-card" data-tooltip="Digital Marketing Executive: 25% Sales Increase & Lead Mentoring">
+                    <div class="logo-card" data-tooltip="Digital Marketing Executive: Brand Marketing & Digital Presence">
                         <img src="https://hssinfra.com/wp-content/uploads/2024/05/418643731_1106011867246542_7987978851081852293_n-2.jpg" alt="HSS Infra Logo">
                         <span class="company-name">HSS Infra</span>
                     </div>
@@ -616,8 +712,8 @@
 
                 <div class="achievement-list">
                     <div class="achievement-item card-animation">
-                        <h4><i class="fas fa-percent"></i> 25% Increase in Company Sales</h4>
-                        <p>Executed end-to-end digital marketing campaigns as Digital Marketing Executive at HSS INFRA, driving significant revenue uplift.</p>
+                        <h4><i class="fas fa-percent"></i> Increase in Company Sales</h4>
+                        <p>Executed end-to-end digital marketing campaigns, Brand Strategies as Digital Marketing Executive at HSS INFRA, driving significant revenue uplift.</p>
                     </div>
                     <div class="achievement-item card-animation">
                         <h4><i class="fas fa-handshake"></i> Enhanced Lead Quality & Conversion</h4>
@@ -626,9 +722,29 @@
                     <div class="achievement-item card-animation">
                         <h4><i class="fas fa-check-double"></i> Product Quality Assurance</h4>
                         <p>Identified and reported product errors in practice questions and test series (Teachmint), enhancing platform reliability and user experience.</p>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- START: My Gallery Section -->
+        <section id="gallery" class="section-padding accent-bg" style="padding-top: 50px; padding-bottom: 50px;">
+            <div class="container">
+                <h3 class="section-title">My Gallery</h3>
+                
+                <div class="gallery-strip-wrapper">
+                    <div class="gallery-slider-container">
+                        
+                        <!-- The Track: This element will scroll infinitely -->
+                        <div id="gallery-track">
+                            <!-- Images will be duplicated and inserted here by JavaScript -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END: My Gallery Section -->
 
         <section id="contact" class="section-padding accent-bg">
             <div class="container">
@@ -649,7 +765,6 @@
     </a>
 
 </div>
-
 
                 <form class="contact-form card-animation" action="https://formspree.io/f/xrbykvwq" method="POST">
                     <h4>Send Me a Message</h4>
@@ -677,8 +792,74 @@
         </div>
     </footer>
 
-    <script>
+<script>
+        const galleryImages = [
+            // Data sources for the gallery
+            { name: "Degree", url: "https://media.licdn.com/dms/image/v2/D5622AQHzlwCPHiAyyw/feedshare-shrink_480/feedshare-shrink_480/0/1689947499414?e=1762387200&v=beta&t=kj1wS8_7IOpaWJfG-kzzeMp3ziQApk34NFFnvjtSO1Y" },
+            { name: "MBA Event", url: "https://media.licdn.com/dms/image/v2/D5622AQGuSfLf-F01Rw/feedshare-shrink_1280/B56ZbaS2iDHgAo-/0/1747419098185?e=1762387200&v=beta&t=_wOwXf1BwRmoIU85wt6_RVCnrLKVKTc9MKBegDCfwUo" },
+            { name: "MBA", url: "https://media.licdn.com/dms/image/v2/D5622AQGdiasudnkjKQ/feedshare-shrink_480/B56ZbaS2sgGoAg-/0/1747419152448?e=1762387200&v=beta&t=UHeYKBTVfURuocuvpaf5tZhmTyDRt-SRjW0TII3TTKU" },
+            { name: "Event", url: "https://media.licdn.com/dms/image/v2/C4D22AQHqiVAE1aFPfQ/feedshare-shrink_480/feedshare-shrink_480/0/1652807493355?e=1762387200&v=beta&t=izFY6bf1-E3RqyG5_Y-9IJ6-vC5aDhf685f9pbroHio" },
+            { name: "Degree Sci Land", url: "https://media.licdn.com/dms/image/v2/C5622AQELhHZoww6nEQ/feedshare-shrink_800/feedshare-shrink_800/0/1647853595887?e=1762387200&v=beta&t=iCk9oJR04S2UyIksbPy9I6pL9HDTq0ufgXbWfInZhc0" }
+        ];
+
+        // --- Gallery Carousel Initialization ---
+        function initializeGalleryCarousel() {
+            const track = document.getElementById('gallery-track');
+            if (!track) return;
+            
+            const numItems = galleryImages.length;
+            
+            // Speed calculation: numItems * 5 is the duration for 50% slower, seamless scrolling.
+            const animationSpeedSeconds = numItems * 5; 
+
+            function createGalleryCard(imageData) {
+                const cardWrapper = document.createElement('div');
+                cardWrapper.className = 'gallery-image-wrapper card-animation'; 
+                cardWrapper.innerHTML = `
+                    <div class="gallery-image-card">
+                        <img 
+                            src="${imageData.url}" 
+                            alt="${imageData.name}"
+                            onerror="this.onerror=null;this.src='https://placehold.co/180x180/cccccc/000000?text=Error';"
+                        >
+                    </div>
+                `;
+                return cardWrapper;
+            }
+
+            // 1. Render the original set
+            galleryImages.forEach(image => {
+                track.appendChild(createGalleryCard(image));
+            });
+
+            // 2. Duplicate the set for infinite loop (Crucial for seamless continuity)
+            galleryImages.forEach(image => {
+                track.appendChild(createGalleryCard(image));
+            });
+            
+            // 3. Dynamically define the animation keyframes and apply
+            const style = document.createElement('style');
+            
+            // Using `linear` timing ensures there is no acceleration/deceleration, guaranteeing a smooth loop.
+            style.innerHTML += `
+                @keyframes gallery-slide {
+                    from { transform: translateX(0); }
+                    to { transform: translateX(-50%); } 
+                }
+                
+                #gallery-track {
+                    width: 200%;
+                    animation: gallery-slide ${animationSpeedSeconds}s linear infinite;
+                    animation-play-state: running; /* Ensure it starts running */
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize only the Gallery carousel
+            initializeGalleryCarousel();
+            
             // Smooth Scrolling for Navigation
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -690,7 +871,7 @@
             });
 
             // Intersection Observer for Card Animations (Scroll reveal effect)
-            const cards = document.querySelectorAll('.card-animation, .contact-info, .logo-card');
+            const cards = document.querySelectorAll('.card-animation, .contact-info, .logo-card, .gallery-image-wrapper');
 
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
@@ -700,8 +881,8 @@
                     }
                 });
             }, {
-                threshold: 0.1, // Start animation when 10% of the item is visible
-                rootMargin: "0px 0px -50px 0px" // Adjust for better responsiveness
+                threshold: 0.1, 
+                rootMargin: "0px 0px -50px 0px" 
             });
 
             cards.forEach(card => {
