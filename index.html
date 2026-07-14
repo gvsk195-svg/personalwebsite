@@ -251,14 +251,14 @@
     align-items:center;
 }
         .profile-image{
-    width:min(100%,420px);
+    width:100%;
+    max-width:360px;
     aspect-ratio:1;
-    height:auto;
-    border-radius:50%;
     object-fit:cover;
+    border-radius:50%;
     border:6px solid var(--color-primary);
     box-shadow:0 0 20px var(--color-shadow);
-    }
+}
         /* --- General Card Styles & Animations --- */
         .card-animation {
             background-color: var(--color-card-bg);
@@ -635,66 +635,60 @@
         }
 
         /* --- Media Queries (Mobile Responsiveness) --- */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 10px;
-            }
+        @media (max-width:768px){
 
-            .main-nav {
-                margin-top: 10px;
-            }
+.hero-section{
+    padding:40px 0;
+}
 
-            .main-nav a {
-                margin: 0 10px;
-            }
+.hero-content{
+    flex-direction:column-reverse;
+    gap:20px;
+    text-align:center;
+}
 
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
+.hero-text{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
 
-            .profile-image {
-                margin-top: 30px;
-            }
+.profile-image{
+    max-width:240px;
+    width:75%;
+    margin:0 auto;
+}
 
-            .name {
-                font-size: 2.5em;
-            }
+.name{
+    font-size:2.2rem;
+    line-height:1.15;
+}
 
-            .tagline {
-                font-size: 1.2em;
-            }
+.tagline{
+    font-size:1.1rem;
+    margin-bottom:12px;
+}
 
-            .hero-actions {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-            }
+.summary-text{
+    max-width:100%;
+    font-size:1rem;
+    margin-bottom:20px;
+    text-align:center;
+}
 
-            .cta-button {
-                margin-right: 0;
-                text-align: center;
-            }
+.hero-actions{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    width:100%;
+}
 
-            .strategy-grid,
-            .skills-grid,
-            .achievement-list {
-                grid-template-columns: 1fr;
-            }
+.cta-button{
+    width:100%;
+    max-width:320px;
+    margin:0 auto;
+}
 
-            .logo-card {
-                width: 100px;
-                height: 100px;
-            }
-
-            .logo-card::before {
-                bottom: -35px;
-            }
-
-            .section-padding {
-                padding: 60px 0;
-            }
         }
     </style>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
