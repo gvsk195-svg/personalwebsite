@@ -4,7 +4,7 @@
    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Grandhi Venkata Sai Krishna | B2B Marketing Specialist | Product & Market Research Specialist </title>
+    <title>B2B Marketing Specialist</title>
     <meta name="description" content="Official portfolio of Grandhi Venkata Sai Krishna, B2B Marketing Specialist focusing on Industrial Tech, Digital Transformation, and DaVinci Smart Manufacturing solutions.">
     <meta name="keywords" content="Grandhi Venkata Sai Krishna, G V Sai Krishna, Sai Krishna Marketing, B2B Marketing Specialist, B2B Marketing Profile, DaVinci Smart Manufacturing, Digital Transformation Expert, Fintech MBA, VirtueServe">
     <meta name="author" content="Grandhi Venkata Sai Krishna">
@@ -12,7 +12,7 @@
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.gvsaikrishna.in/">
-    <meta property="og:title" content="Grandhi Venkata Sai Krishna | B2B Marketing & Product/ Market Research Specialist">
+    <meta property="og:title" content="B2B Marketing Specialist">
     <meta property="og:description" content="Strategic B2B Marketing Specialist scaling Industrial Tech growth and Smart Manufacturing narratives.">
     <meta property="og:image" content="https://image2url.com/images/1759518101336-9d65f132-9363-41e2-baf0-de99ca6cf541.jpg">
 
@@ -80,10 +80,10 @@
             transition: background-color var(--transition-duration), color var(--transition-duration);
         }
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
+        .container{
+            width:min(92%,1320px);
+            margin:auto;
+            padding-inline:20px;
         }
 
         /* Typography */
@@ -134,10 +134,21 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1em;
-            font-weight: 700;
-            color: var(--color-primary);
+        .logo{
+            display:flex;
+            align-items:center;
+            text-decoration:none;
+        }
+
+        .logo img{
+            height:55px;
+            width:auto;
+            display:block;
+            background:transparent;
+        }
+
+        .logo img:hover{
+            transform:scale(1.05);
         }
 
         .main-nav a {
@@ -200,49 +211,54 @@
             background-color: var(--color-background);
         }
 
-        .hero-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
+        .hero-content{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:clamp(30px,5vw,80px);
+    flex-wrap:wrap;
+}
 
-        .hero-text {
-            flex: 2;
-        }
+.hero-text{
+    flex:1 1 550px;
+}
 
-        .name {
-            font-size: 2em;
-            margin-bottom: 5px;
-            color: var(--color-primary);
-        }
+.name{
+    font-size:clamp(2rem,4vw,4rem);
+    margin-bottom:10px;
+    color:var(--color-primary);
+    line-height:1.2;
+}
 
-        .tagline {
-            font-size: 1.4em;
-            font-weight: 300;
-            color: var(--color-secondary);
-            margin-bottom: 20px;
-        }
+.tagline{
+    font-size:clamp(1rem,2vw,1.5rem);
+    font-weight:300;
+    color:var(--color-secondary);
+    margin-bottom:20px;
+    line-height:1.5;
+}
 
-        .summary-text {
-            margin-bottom: 30px;
-            font-size: 1.05em;
-            max-width: 90%;
-        }
+.summary-text{
+    margin-bottom:30px;
+    font-size:clamp(1rem,1.2vw,1.1rem);
+    max-width:700px;
+}
 
-        .hero-image-container {
-            flex: 1;
-            text-align: center;
-        }
-
-        .profile-image {
-           width: 500px;
-           height: 500px;
-           border-radius: 50%;
-           object-fit: scale-down;
-           border: 6px solid var(--color-primary);
-           box-shadow: 0 0 20px var(--color-shadow);
-        }
-
+.hero-image-container{
+    flex:1 1 350px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+        .profile-image{
+    width:min(100%,420px);
+    aspect-ratio:1;
+    height:auto;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid var(--color-primary);
+    box-shadow:0 0 20px var(--color-shadow);
+    }
         /* --- General Card Styles & Animations --- */
         .card-animation {
             background-color: var(--color-card-bg);
@@ -388,7 +404,51 @@
         .achievement-item i {
             margin-right: 8px;
         }
-        
+        .tools-slider-container{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+   }
+
+    #tools-track{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    width:max-content;
+    animation:scrollTools 35s linear infinite;
+   }
+
+   .tool-logo{
+    width:130px;
+    height:80px;
+    background:#fff;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:15px;
+    flex-shrink:0;
+    transition:0.3s;
+    }
+
+    .tool-logo:hover{
+    transform:translateY(-6px);
+    }
+
+    .tool-logo img{
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+   }
+
+   @keyframes scrollTools{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+    }
         /* --- START GALLERY CAROUSEL STRIP STYLES --- */
 
         /* Container (md:block styles) */
@@ -432,14 +492,13 @@
         }
 
         /* Image Card Styles (specific to the gallery strip) */
-        .gallery-image-wrapper {
-            width: 180px; /* 50% larger than 120px */
-            flex-shrink: 0; 
-            padding: 0 10px; /* Reduced gap as requested */
-            height: 100%;
-            box-sizing: border-box;
-            cursor: default; /* Changed cursor to default since hover effect is applied */
-        }
+        .gallery-image-wrapper{
+            width:260px;
+            height:180px;
+            flex-shrink:0;
+            padding:0 12px;
+            box-sizing:border-box;
+            }
         
         @media (max-width: 767px) {
             .gallery-image-wrapper {
@@ -448,31 +507,35 @@
             }
         }
 
-        .gallery-image-card { 
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 6px;
-            overflow: hidden;
-        }
+        .gallery-image-card{
+            width:100%;
+            height:100%;
+            background:#ffffff;
+            border-radius:12px;
+            overflow:hidden;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            border:1px solid #e5e5e5;
+            box-shadow:0 6px 20px rgba(0,0,0,.08);
+            }
 
-        .gallery-image-card img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: cover; 
-            filter: none; 
-            opacity: 1;
-            /* Enhanced professional animation */
-            transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; 
-            border-radius: 6px;
-        }
+            .gallery-image-card img{
+                width:100%;
+                height:100%;
+                object-fit:contain;      /* Shows the entire portrait */
+                object-position:center;
+                background:#f8f8f8;      /* Clean background */
+                transition:transform .1s ease;
+            }
         
-        .gallery-image-wrapper:hover img {
-            transform: scale(1.05); /* Subtle zoom */
-            /* Green shadow for professional highlight */
-            box-shadow: 0 10px 25px rgba(56, 161, 105, 0.5); 
-        }
+            .gallery-image-wrapper:hover img{
+            transform:scale(1.04);
+            }
+
+            .gallery-image-wrapper:hover .gallery-image-card{
+            box-shadow:0 12px 30px rgba(56,161,105,.25);
+            }
 
         /* --- END GALLERY CAROUSEL STRIP STYLES --- */
         
@@ -634,12 +697,21 @@
             }
         }
     </style>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.image2url.com/r2/default/images/1784065896273-d69dc71a-34f7-457d-a773-1b5a601c0be8.png">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.image2url.com/r2/default/images/1784065896273-d69dc71a-34f7-457d-a773-1b5a601c0be8.png">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.image2url.com/r2/default/images/1784065896273-d69dc71a-34f7-457d-a773-1b5a601c0be8.png">
 </head>
 <body>
 
     <header>
         <div class="container nav-container">
-            <h1 class="logo">GVSK</h1>
+           <a href="#hero" class="logo">
+           <img src="https://www.image2url.com/r2/default/images/1784066806971-9cf472f5-6407-465d-b057-354b80b3ec44.png" alt="Sai Krishna Logo">
+            </a>
             <nav class="main-nav">
                 <a href="#hero">Home</a>
                 <a href="#skills">Skills</a>
@@ -729,7 +801,50 @@
                 </div>
             </div>
         </section>
+<section id="tools" class="section-padding accent-bg" style="padding-top:50px; padding-bottom:50px;">
+    <div class="container">
 
+        <h3 class="section-title">AI & Marketing Tools</h3>
+
+        <div class="tools-strip-wrapper">
+            <div class="tools-slider-container">
+
+                <div id="tools-track">
+
+                    <!-- First Set -->
+
+                    <div class="tool-logo"><img src="https://cdn.freebiesupply.com/logos/large/2x/chatgpt-logo-png-transparent.png" alt="ChatGPT"></div>
+                    <div class="tool-logo"><img src="https://freepnglogo.com/images/all_img/claude-ai-logo-d862.png" alt="Claude"></div>
+                    <div class="tool-logo"><img src="https://www.gstatic.com/lamda/images/gemini_aurora_thumbnail_4g_e74822ff0ca4259beb718.png" alt="Gemini"></div>
+                    <div class="tool-logo"><img src="https://tse4.mm.bing.net/th/id/OIP.K7cudZ5ltFX1JQ6HUg26ewHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Make"></div>
+                    <div class="tool-logo"><img src="https://vectorseek.com/wp-content/uploads/2023/08/Apollo.Io-Logo-Vector.svg-.png" alt="Apollo.io"></div>
+                    <div class="tool-logo"><img src="https://freepnglogo.com/images/all_img/1691829237canva-logo-png.png" alt="Canva"></div>
+                    <div class="tool-logo"><img src="https://www.pngmart.com/files/23/Google-Ads-Logo-PNG-HD-1.png" alt="Google Ads"></div>
+                    <div class="tool-logo"><img src="https://corp-backend.brevo.com/de/wp-content/uploads/sites/5/2023/05/Brevo-Logo-1.png" alt="Brevo Email Marketing"></div>
+                    <div class="tool-logo"><img src="https://vectorseek.com/wp-content/uploads/2025/07/Lovable-Ai-Logo-PNG-SVG-Vector.png" alt="Lovable"></div>
+                    <div class="tool-logo"><img src="https://logos-world.net/wp-content/uploads/2023/08/Perplexity-Logo.png" alt="Perplexity"></div>
+                    <div class="tool-logo"><img src="https://static.vecteezy.com/system/resources/previews/022/100/699/non_2x/meta-logo-transparent-free-png.png" alt="Meta Ads"></div>
+                    <!-- Duplicate for Infinite Scroll -->
+
+                    <div class="tool-logo"><img src="https://cdn.freebiesupply.com/logos/large/2x/chatgpt-logo-png-transparent.png" alt="ChatGPT"></div>
+                    <div class="tool-logo"><img src="https://freepnglogo.com/images/all_img/claude-ai-logo-d862.png" alt="Claude"></div>
+                    <div class="tool-logo"><img src="https://www.gstatic.com/lamda/images/gemini_aurora_thumbnail_4g_e74822ff0ca4259beb718.png" alt="Gemini"></div>
+                    <div class="tool-logo"><img src="https://tse4.mm.bing.net/th/id/OIP.K7cudZ5ltFX1JQ6HUg26ewHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Make"></div>
+                    <div class="tool-logo"><img src="https://vectorseek.com/wp-content/uploads/2023/08/Apollo.Io-Logo-Vector.svg-.png" alt="Apollo.io"></div>
+                    <div class="tool-logo"><img src="https://freepnglogo.com/images/all_img/1691829237canva-logo-png.png" alt="Canva"></div>
+                    <div class="tool-logo"><img src="https://www.pngmart.com/files/23/Google-Ads-Logo-PNG-HD-1.png" alt="Google Ads"></div>
+                    <div class="tool-logo"><img src=""https://corp-backend.brevo.com/de/wp-content/uploads/sites/5/2023/05/Brevo-Logo-1.png" alt="Brevo Email Marketing"></div>
+                    <div class="tool-logo"><img src="https://vectorseek.com/wp-content/uploads/2025/07/Lovable-Ai-Logo-PNG-SVG-Vector.png" alt="Lovable"></div>
+                    <div class="tool-logo"><img src="https://logos-world.net/wp-content/uploads/2023/08/Perplexity-Logo.png" alt="Perplexity"></div>
+                    <div class="tool-logo"><img src="https://static.vecteezy.com/system/resources/previews/022/100/699/non_2x/meta-logo-transparent-free-png.png" alt="Meta Ads"></div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
         <section id="experience" class="section-padding">
             <div class="container">
                 <h3 class="section-title">Career Achievements & Quantifiable Impact</h3>
@@ -790,7 +905,7 @@
 
         <section id="contact" class="section-padding accent-bg">
             <div class="container">
-                <h3 class="section-title">Contact & Professional Network</h3>
+                <h3 class="section-title">Let's Connect</h3>
                 <p class="section-intro">
                     I am open to strategic discussions, collaborations, and opportunities where I can contribute to organizational growth, digital transformation, and market leadership.
                 </p>
@@ -846,6 +961,9 @@
            { name: "MBA", url: "https://image2url.com/images/1762881977471-9f5c5f47-3998-44e7-85c5-657f74c6f0b1.jfif" },
             { name: "Event", url: "https://image2url.com/images/1762882126499-e55469c0-4497-493a-ad23-2776daab3078.jfif" },
            { name: "Dubai Event", url: "https://image2url.com/r2/default/images/1772732051626-8ac81d6d-c3fd-4711-97f0-8d0f8aac0e08.jfif" },
+            { name: "Degree Sci Land", url: "https://image2url.com/images/1762882172863-df3ad36f-374d-4bed-962f-30ad210ebfba.jfif" },
+            { name: "Indonesia Event", url: "https://www.image2url.com/r2/default/images/1784064332931-8432ac60-602a-427d-8fad-14c62b8e9bca.jfif" },
+            { name: "Pharma Pack & Pro Expo", url: "https://www.image2url.com/r2/default/images/1784064272616-0c6306b4-ac2a-4a7f-9815-596ffdd9443c.jfif" },
             { name: "Degree Sci Land", url: "https://image2url.com/images/1762882172863-df3ad36f-374d-4bed-962f-30ad210ebfba.jfif" }
         ];
 
@@ -902,10 +1020,26 @@
             `;
             document.head.appendChild(style);
         }
+                    function preloadImages(images, callback){
+                let loaded = 0;
+
+                images.forEach(image => {
+                    const img = new Image();
+
+                    img.onload = img.onerror = () => {
+                        loaded++;
+                        if(loaded === images.length){
+                            callback();
+                        }
+                    };
+
+                    img.src = image.url;
+                });
+            }
         
         document.addEventListener('DOMContentLoaded', () => {
             // Initialize only the Gallery carousel
-            initializeGalleryCarousel();
+            preloadImages(galleryImages, initializeGalleryCarousel);
             
             // Smooth Scrolling for Navigation
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -953,10 +1087,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
