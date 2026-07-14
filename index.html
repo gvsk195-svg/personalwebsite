@@ -150,7 +150,9 @@
         .logo img:hover{
             transform:scale(1.05);
         }
-
+      .main-nav{
+    transition:.35s ease;
+      }
         .main-nav a {
             color: var(--color-text);
             text-decoration: none;
@@ -162,6 +164,50 @@
         .main-nav a:hover {
             color: var(--color-primary);
         }
+        .nav-toggle{
+    display:none;
+    font-size:28px;
+    color:var(--color-primary);
+    cursor:pointer;
+}
+
+/* Mobile Navigation */
+
+@media (max-width:768px){
+
+.nav-container{
+    position:relative;
+}
+
+.nav-toggle{
+    display:block;
+}
+
+.main-nav{
+    position:absolute;
+    top:80px;
+    left:0;
+    width:100%;
+    background:#fff;
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    padding:20px 0;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    z-index:999;
+}
+
+.main-nav.active{
+    display:flex;
+}
+
+.main-nav a{
+    margin:12px 0;
+    font-size:1rem;
+}
+
+}
 
         /* Removed theme toggle button styling */
         .theme-toggle {
@@ -706,6 +752,9 @@
            <a href="#hero" class="logo">
            <img src="https://www.image2url.com/r2/default/images/1784066806971-9cf472f5-6407-465d-b057-354b80b3ec44.png" alt="Sai Krishna Logo">
             </a>
+            <div class="nav-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
             <nav class="main-nav">
                 <a href="#hero">Home</a>
                 <a href="#skills">Skills</a>
@@ -947,6 +996,27 @@
     </footer>
 
 <script>
+                    const navToggle=document.querySelector(".nav-toggle");
+                const nav=document.querySelector(".main-nav");
+                const icon=navToggle.querySelector("i");
+
+                navToggle.addEventListener("click",()=>{
+
+                    nav.classList.toggle("active");
+
+                    if(nav.classList.contains("active")){
+
+                        icon.classList.remove("fa-bars");
+                        icon.classList.add("fa-times");
+
+                    }else{
+
+                        icon.classList.remove("fa-times");
+                        icon.classList.add("fa-bars");
+
+                    }
+
+                });
         const galleryImages = [
             // Data sources for the gallery
             { name: "Degree", url: "https://image2url.com/images/1762881893441-2e8aa367-e260-4efd-86cd-cba3d239d6ee.jfif" },
@@ -1032,12 +1102,20 @@
             }
         
         document.addEventListener('DOMContentLoaded', () => {
+                            const navToggle=document.querySelector(".nav-toggle");
+                const nav=document.querySelector(".main-nav");
+
+                navToggle.addEventListener("click",()=>{
+
+                    nav.classList.toggle("active");
+
+                });
             // Initialize only the Gallery carousel
             preloadImages(galleryImages, initializeGalleryCarousel);
             
             // Smooth Scrolling for Navigation
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
+                anchor.addEventListener('click', function (e) { nav.classList.remove("active");
                     e.preventDefault();
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
                         behavior: 'smooth'
